@@ -1,0 +1,15 @@
+/* Reduce the width of the select's scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Adjust the width as needed */
+}
+
+/* Track (the area the scrollbar moves in) */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* You can set the background color here */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* You can set the background color here */
+  border-radius: 6px; /* Adjust the border-radius as needed */
+}
