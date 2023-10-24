@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const adminAxios = axios.create({
-  baseURL: "http://localhost:3093",
+  baseURL: "https://admin-ticket-web.onrender.com",
 });
 
 export default adminAxios;
