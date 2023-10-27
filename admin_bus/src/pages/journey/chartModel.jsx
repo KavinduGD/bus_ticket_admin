@@ -20,7 +20,7 @@ function ChartModal({ isOpen, onRequestClose, route, date }) {
       {/* Add your chart component or content here */}
       <div className="h-[500px] ">
         <div className="flex justify-between items-end font-roboto font-medium ">
-          <div className="flex gap-[70px]">
+          <div className="flex gap-[70px] pl-[200px]">
             <p className="text-2xl ">{route}</p>
             <p className="text-2xl ">{dayjs(date).format("dddd")}</p>
             <p className="text-2xl ">
