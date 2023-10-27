@@ -53,7 +53,7 @@ function Report() {
                     <div className="flex gap-[60px] items-center  w-full  pl-[60px] ">
                       <div>
                         <img
-                          src="https://res-console.cloudinary.com/dnoobzfxo/thumbnails/v1/image/upload/v1697876127/MzYwX0ZfNDkxMjQyNDcwX1dkU3B3S1JNWWlIcVR2UkJScHNINzJjTTRnMVZXTDIyLXJlbW92ZWJnLXByZXZpZXdfdXIzMTVl/grid_landscape"
+                          src="https://res.cloudinary.com/dnoobzfxo/image/upload/v1697876127/360_F_491242470_WdSpwKRMYiHqTvRBRpsH72cM4g1VWL22-removebg-preview_ur315e.png"
                           alt=""
                           className="w-[110px]"
                         />
