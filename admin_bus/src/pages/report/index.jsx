@@ -69,7 +69,7 @@ function Report() {
                       <p>Transport Manager,</p>
                       <p>Gampaha head office,</p>
                       <p>Gampaha ,</p>
-                      <p>Ministry of Transport and Highway</p>
+                      <p>Ministry of Transport </p>
                     </div>
                   </div>
                   <div className="w-full  flex justify-center  font-tinos text-[22px] font-bold mt-7">
