@@ -26,7 +26,9 @@ import dayjs from "dayjs";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import adminAxios from "../../baseUrl";
 import { Box } from "@mui/material";
-
+import InsertChartIcon from "@mui/icons-material/InsertChart";
+import { IconButton } from "@mui/material";
+import ChartModal from "./chartModel";
 function CustomPagination() {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);
@@ -198,12 +200,22 @@ function Journey() {
     }
   }, [routeId, date, journeys]);
 
+  const [isChartModalOpen, setIsChartModalOpen] = useState(false);
+
+  const handleOpenChartModal = () => {
+    setIsChartModalOpen(true);
+  };
+
+  const handleCloseChartModal = () => {
+    setIsChartModalOpen(false);
+  };
+
   const columns = [
     {
       field: "journeyId",
       headerName: "Journey ID",
       width: 90,
-      flex: 0.5,
+      flex: 0.45,
       align: "center",
       headerAlign: "center",
       type: "string",
@@ -212,7 +224,7 @@ function Journey() {
       field: "Way",
       headerName: "Way",
       width: 90,
-      flex: 0.5,
+      flex: 0.45,
       align: "center",
       headerAlign: "center",
       type: "string",
@@ -231,7 +243,7 @@ function Journey() {
       field: "Start Time",
       headerName: "Start",
       width: 90,
-      flex: 0.25,
+      flex: 0.22,
       align: "center",
       headerAlign: "center",
       type: "string",
@@ -248,7 +260,7 @@ function Journey() {
       field: "EndTime",
       headerName: "End",
       width: 90,
-      flex: 0.25,
+      flex: 0.22,
       align: "center",
       headerAlign: "center",
       type: "string",
@@ -265,12 +277,12 @@ function Journey() {
       field: "Bus",
       headerName: "Bus",
       width: 90,
-      flex: 0.5,
+      flex: 0.35,
       align: "center",
       headerAlign: "center",
       type: "string",
       renderCell: (params) => (
-        <div className="flex flex-col items-start w-[70%]">
+        <div className="flex flex-col items-start w-[90%]">
           <select
             className="text-center text-xs rounded-[3px]  h-[17px] px-15  text-gray-800   border-[1px]  border-gray-300   focus:outline-none w-full custom-scrollbar"
             value={params.row.bus === null ? "0" : params.row.bus}
@@ -307,12 +319,12 @@ function Journey() {
       headerName: "Bus Details",
       width: 90,
       flex: 0.5,
-      align: "center",
+      align: "left",
       headerAlign: "center",
       type: "string",
       renderCell: (params) =>
         params.row.bus ? (
-          <div className="text-[11px] flex flex-col gap-1">
+          <div className="text-[12px] flex flex-col gap-1 ">
             <p>
               D-
               {
@@ -353,19 +365,37 @@ function Journey() {
             </p>
           </div>
         ) : (
-          <div className="text-[12px]">-Select a bus-</div>
+          <div className="text-[12px] pl-8">-Select a bus-</div>
         ),
+    },
+    {
+      field: "chart",
+      headerName: "Chart",
+      width: 90,
+      flex: 0.22,
+      align: "center",
+      headerAlign: "center",
+      type: "string",
+      renderCell: (params) => (
+        <IconButton
+          onClick={() => {
+            handleOpenChartModal();
+          }}
+        >
+          <InsertChartIcon sx={{ fontSize: 18 }} />
+        </IconButton>
+      ),
     },
     {
       field: "Inspector",
       headerName: "Inspector",
       width: 90,
-      flex: 0.5,
-      align: "center",
+      flex: 0.35,
+      align: "left",
       headerAlign: "center",
       type: "string",
       renderCell: (params) => (
-        <div className="flex flex-col items-start w-[70%]">
+        <div className="flex flex-col items-start w-[90%]">
           <select
             className="text-center text-xs rounded-[3px]  h-[17px] px-15  text-gray-800   border-[1px]  border-gray-300   focus:outline-none w-full custom-scrollbar"
             value={params.row.inspector === null ? "0" : params.row.inspector}
@@ -438,7 +468,7 @@ function Journey() {
                 pageSizeOptions={[5]}
                 showColumnVerticalBorder={true}
                 showCellVerticalBorder={true}
-                rowHeight={90}
+                rowHeight={95}
                 slots={{
                   pagination: CustomPagination,
                 }}
@@ -499,6 +529,16 @@ function Journey() {
           </Box>
         </div>
       </div>
+      <ChartModal
+        route={
+          roadRoutes &&
+          routeId &&
+          roadRoutes.find((route) => route._id == routeId).routeId
+        }
+        date={date}
+        isOpen={isChartModalOpen}
+        onRequestClose={handleCloseChartModal}
+      />
     </div>
   );
 }

@@ -13,3 +13,26 @@
   background: #888; /* You can set the background color here */
   border-radius: 6px; /* Adjust the border-radius as needed */
 }
+
+/* Add this to your CSS */
+.chart-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%; /* Adjust the width as needed */
+  max-width: 1000px; /* Adjust the maximum width as needed */
+  padding: 20px;
+}
