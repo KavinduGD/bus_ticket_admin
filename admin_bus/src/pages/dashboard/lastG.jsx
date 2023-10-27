@@ -84,13 +84,6 @@ function LastG() {
         <div className="w-full h-full pr-2">
           <ResponsiveContainer width="100%" height={210}>
             <ComposedChart data={data}>
-              {/* <CartesianGrid strokeDasharray="3 3" /> */}
-              <Line
-                dataKey="pro"
-                stroke="#D15152"
-                dot={false}
-                strokeWidth={2}
-              />
               <XAxis
                 dataKey="name"
                 fontSize={11}
@@ -104,15 +97,24 @@ function LastG() {
                 tickCount={8}
                 style={{ fontFamily: "roboto", fontWeight: "300" }}
               />
-
               <Tooltip />
-
               <Bar
                 dataKey="pro"
                 fill="#028D91"
                 barSize={16}
 
                 // activeBar={<Rectangle fill="pink" stroke="blue" />}
+              />{" "}
+              <Line
+                dataKey="pro"
+                stroke="#D15152"
+                dot={{
+                  stroke: "red",
+                  strokeWidth: 1,
+                  r: 2,
+                  fill: "#D15152",
+                }}
+                strokeWidth={2}
               />
             </ComposedChart>
           </ResponsiveContainer>

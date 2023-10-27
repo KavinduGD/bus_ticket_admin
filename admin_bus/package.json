@@ -24,7 +24,8 @@
     "react-material-ui-carousel": "^3.4.2",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.16.0",
-    "recharts": "^2.9.0"
+    "recharts": "^2.9.0",
+    "@progress/kendo-react-pdf": "^5.19.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
