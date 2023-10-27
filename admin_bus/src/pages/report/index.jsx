@@ -209,10 +209,8 @@ function Report() {
               />
             </div>
           </div>
-          <div className="flex flex-col">
-            <label htmlFor="productID" className="text-[15px]">
-              Justification
-            </label>
+          <div className="text-[17px] font-roboto mt-3">
+            <label className="">Justification</label>
             <textarea
               type="text"
               name=""
